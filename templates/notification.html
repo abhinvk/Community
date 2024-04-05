@@ -1,0 +1,94 @@
+{% extends "base.html" %}
+{% block title %}
+  Notification
+{% endblock title %}
+
+{% block body %}
+<!-- Google Translate Widget -->
+<div id="google_translate_element"></div>
+
+<div class="container">
+  <h1>Notification</h1>
+
+  {% if has_notification %}
+      {% if seat_details %}
+          <div class="notification-details">
+              <h2>Notification Details</h2>
+              <table class="table">
+                  <thead>
+                      <tr>
+                          <th>Name</th>
+                          <th>Age</th>
+                          <th>Stop</th>
+                      </tr>
+                  </thead>
+                  <tbody>
+                      {% for detail in seat_details %}
+                      <tr>
+                          <td>{{ detail.name }}</td>
+                          <td>{{ detail.age }}</td>
+                          <td>{{ detail.stop }}</td>
+                      </tr>
+                      {% endfor %}
+                  </tbody>
+              </table>
+          </div>
+      {% else %}
+          <p class="no-details">No seat details available.</p>
+      {% endif %}
+  {% else %}
+      <p class="no-notification">No transportation notifications found.</p>
+  {% endif %}
+</div>
+
+<!-- Google Translate API Script -->
+<script type="text/javascript">
+    function googleTranslateElementInit() {
+        new google.translate.TranslateElement({ pageLanguage: 'en' }, 'google_translate_element');
+    }
+</script>
+<script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+
+<style>
+  body {
+    font-family: Arial, sans-serif;
+  }
+
+  .container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+  }
+
+  h1 {
+    color: #333;
+    text-align: center;
+  }
+
+  .table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+  }
+
+  th, td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+  }
+
+  th {
+    background-color: #f2f2f2;
+    color: #333;
+  }
+
+  .no-details, .no-notification {
+    color: #666;
+    text-align: center;
+  }
+
+  .notification-details {
+    margin-top: 20px;
+  }
+</style>
+{% endblock %}
