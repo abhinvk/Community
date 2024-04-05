@@ -20,11 +20,13 @@ app.secret_key = '1a2b3c4d5e6d7g8h9i10'
 # app.config['MYSQL_PORT'] = 19355  # Port is 19355 according to the provided information.
 # app.config['MYSQL_SSL_MODE'] = 'REQUIRED'  # SSL mode is REQUIRED according to the provided information.
 
-app.config['MYSQL_HOST'] = '127.0.0.1'
-app.config['MYSQL_USER'] = 'root'
-app.config['MYSQL_PASSWORD'] = 'Abhin@123'
-app.config['MYSQL_PORT'] = 3306
-app.config['MYSQL_DB'] = 'community'
+# Enter your database connection details below
+app.config['MYSQL_HOST'] = 'mysql-21472e3d-abhinvk1000-ee45.a.aivencloud.com'
+app.config['MYSQL_USER'] = 'avnadmin'
+app.config['MYSQL_PASSWORD'] = 'AVNS_T2bnTDBLfJy5n-WKH0J'  # Replace ******* with your database password.
+app.config['MYSQL_DB'] = 'defaultdb'  # Database name is defaultdb according to the provided information.
+app.config['MYSQL_PORT'] = 19355  # Port is 19355 according to the provided information.
+app.config['MYSQL_SSL_MODE'] = 'REQUIRED'  # SSL mode is REQUIRED according to the provided information.
 
 # Intialize MySQL
 mysql = MySQL(app)
